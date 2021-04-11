@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <AllFriends :Totalfriends="friends" />
+   <OnlineFriends :Totalfriends="friends" />
+  
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import AllFriends from "./components/AllFriends"
+import OnlineFriends from "./components/OnlineFriends"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    AllFriends,
+    OnlineFriends
+  },
+  data(){
+    return{
+      friends: [
+        {name:'Mario', online: true},
+        {name:'Luigi', online: false},
+        {name:'Todd', online: true},
+        {name:'Bowzer', online: false}
+      ]
+    }
   }
 }
 </script>
@@ -21,8 +33,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
