@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-   <AllFriends :Totalfriends="friends" @toggleStatus="toggleStatus(name)" />
-   <OnlineFriends :Totalfriends="friends" />
+    <h1>All Friends</h1>
+   <AllFriends :Totalfriends="friends" />
+   <h1>Online Friends</h1>
+   <OnlineFriends :Totalfriends="friends" @toggleStatus="toggleStatus" />
   
   </div>
 </template>
@@ -27,10 +29,11 @@ export default {
   },
   methods: {
     toggleStatus(payload){
-      console.log(payload)
-      this.friends = [this.friends.filter((friend)=>{
+      //console.log(payload)
+      this.friends = this.friends.filter((friend)=>{
+        console.log(friend.name !== payload.name);
         return friend.name !== payload.name
-      })]
+      })
     }
   }
 }

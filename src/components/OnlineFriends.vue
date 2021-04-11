@@ -2,7 +2,7 @@
   <div>
       Online Friends
       <div v-for="(friends, index) in Totalfriends" :key="index">
-          <p  @click="toggleStatus(friends.name)" v-if="friends.online">{{friends.name}}</p>
+          <p @click="toggleStatus(friends.name)" v-if="friends.online">{{friends.name}}</p>
           <!-- <span class="pill">online</span> -->
       </div>
   </div>
