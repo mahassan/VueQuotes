@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-   <AllFriends :Totalfriends="friends" />
+   <AllFriends :Totalfriends="friends" @toggleStatus="toggleStatus(name)" />
    <OnlineFriends :Totalfriends="friends" />
   
   </div>
@@ -24,6 +24,14 @@ export default {
         {name:'Bowzer', online: false}
       ]
     }
+  },
+  methods: {
+    toggleStatus(payload){
+      console.log(payload)
+      this.friends = [this.friends.filter((friend)=>{
+        return friend.name !== payload.name
+      })]
+    }
   }
 }
 </script>
@@ -34,5 +42,11 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+}
+.pill{
+  border: 1px solid lightgreen;
+  color: lightgreen;
+  padding:5px;
+  border-radius: 5px;
 }
 </style>
